@@ -6,27 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="AI Solution Kit Deployment Guide">
-      
       
       
         <link rel="canonical" href="https://www.amazonaws.cn/solutions/ai-solution-kit/deploy-image-similarity/">
       
-      <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+      
+        <link rel="prev" href="../deploy-human-image-segmentation/">
+      
+      
+        <link rel="next" href="../deploy-object-recognition/">
+      
+      <link rel="icon" href="https://s3.cn-north-1.amazonaws.com.cn/aws-assets-prod/libra-css/images/site/fav/favicon.ico">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.5">
     
     
       
-        <title>图像相似度 - 人工智能解决方案合集实施指南</title>
+        <title>图像相似度 - AI Solution Kit</title>
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.3de6f41f.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7a7fce14.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.cc9b2e1e.min.css">
-        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
+      
+
     
     
     
@@ -39,10 +44,11 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -50,12 +56,16 @@
   
     
     
+      
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,10 +87,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href=".." title="人工智能解决方案合集实施指南" class="md-header__button md-logo" aria-label="人工智能解决方案合集实施指南" data-md-component="logo">
+    <a href=".." title="AI Solution Kit" class="md-header__button md-logo" aria-label="AI Solution Kit" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="https://s3.cn-north-1.amazonaws.com.cn/aws-assets-prod/libra-css/images/site/fav/favicon.ico" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -90,7 +99,7 @@
       <div class="md-header__ellipsis">
         <div class="md-header__topic">
           <span class="md-ellipsis">
-            人工智能解决方案合集实施指南
+            AI Solution Kit
           </span>
         </div>
         <div class="md-header__topic" data-md-component="header-topic">
@@ -103,6 +112,26 @@
       </div>
     </div>
     
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
     
       <div class="md-header__option">
         <div class="md-select">
@@ -114,17 +143,17 @@
             <ul class="md-select__list">
               
                 <li class="md-select__item">
-                  <a href="/aws-ai-solution-kit/en/" hreflang="en" class="md-select__link">
-                    English
-                  </a>
-                </li>
-                
-                <li class="md-select__item">
                   <a href="/aws-ai-solution-kit/zh/" hreflang="zh" class="md-select__link">
                     中文
                   </a>
                 </li>
-                
+              
+                <li class="md-select__item">
+                  <a href="/aws-ai-solution-kit/en/" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+              
             </ul>
           </div>
         </div>
@@ -145,7 +174,7 @@
       </label>
       <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
@@ -157,7 +186,7 @@
           <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -166,13 +195,13 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/aws-samples/aws-ai-solution-kit" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/awslabs/aws-ai-solution-kit" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    awslabs/aws-ai-solution-kit
   </div>
 </a>
       </div>
@@ -188,7 +217,7 @@
           
             
 <nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
@@ -203,7 +232,23 @@
   
     <li class="md-tabs__item">
       <a href=".." class="md-tabs__link md-tabs__link--active">
-        人工智能解决方案合集实施指南
+        实施指南
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../workshop/introduction/" class="md-tabs__link">
+        动手实验
       </a>
     </li>
   
@@ -230,23 +275,22 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="人工智能解决方案合集实施指南" class="md-nav__button md-logo" aria-label="人工智能解决方案合集实施指南" data-md-component="logo">
+    <a href=".." title="AI Solution Kit" class="md-nav__button md-logo" aria-label="AI Solution Kit" data-md-component="logo">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <img src="https://s3.cn-north-1.amazonaws.com.cn/aws-assets-prod/libra-css/images/site/fav/favicon.ico" alt="logo">
 
     </a>
-    人工智能解决方案合集实施指南
+    AI Solution Kit
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/aws-samples/aws-ai-solution-kit" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/awslabs/aws-ai-solution-kit" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
-    GitHub
+    awslabs/aws-ai-solution-kit
   </div>
 </a>
     </div>
@@ -266,20 +310,21 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_1">
-          人工智能解决方案合集实施指南
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          实施指南
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="人工智能解决方案合集实施指南" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
-          人工智能解决方案合集实施指南
+          实施指南
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -376,17 +421,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_7" type="checkbox" id="__nav_1_7" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_7" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_1_7">
+        <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
           部署解决方案
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="部署解决方案" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1_7">
           <span class="md-nav__icon md-icon"></span>
           部署解决方案
@@ -439,17 +485,18 @@
     <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1_8" type="checkbox" id="__nav_1_8" checked>
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_8" checked>
       
       
       
-      
-        <label class="md-nav__link" for="__nav_1_8">
+        <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
           API参考指南
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="API参考指南" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_1_8">
           <span class="md-nav__icon md-icon"></span>
           API参考指南
@@ -505,7 +552,7 @@
   
     <li class="md-nav__item">
       <a href="../deploy-custom-ocr/" class="md-nav__link">
-        自定义模版文字识别
+        自定义模板文字识别
       </a>
     </li>
   
@@ -533,7 +580,7 @@
   
     <li class="md-nav__item">
       <a href="../deploy-face-detection/" class="md-nav__link">
-        人脸识别
+        人脸检测
       </a>
     </li>
   
@@ -591,7 +638,7 @@
   
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
       
@@ -629,10 +676,30 @@
     API参数说明
   </a>
   
+    <nav class="md-nav" aria-label="API参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    单张图片模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    两张图片模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     开始使用
   </a>
   
@@ -687,7 +754,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     成本预估
   </a>
   
@@ -708,7 +775,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     卸载部署
   </a>
   
@@ -744,7 +811,7 @@
   
     <li class="md-nav__item">
       <a href="../deploy-pornography-detection/" class="md-nav__link">
-        色情内容审核
+        色情内容检测
       </a>
     </li>
   
@@ -876,6 +943,249 @@
   
 
     
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          动手实验
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          动手实验
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/introduction/" class="md-nav__link">
+        1 简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/requisites/" class="md-nav__link">
+        2 前提条件
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/architecture/" class="md-nav__link">
+        3 架构概览
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          4 准备实验环境
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          4 准备实验环境
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/deploy-ask/" class="md-nav__link">
+        4.1 部署AI Solution Kit
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/deploy-workshop-backend/" class="md-nav__link">
+        4.2 部署示例程序后端
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/deploy-workshop-ui/" class="md-nav__link">
+        4.3 部署示例程序前端
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          5 体验以图搜图功能
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          5 体验以图搜图功能
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/admin/" class="md-nav__link">
+        5.1 管理员操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/user/" class="md-nav__link">
+        5.2 普通用户操作
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/clean/" class="md-nav__link">
+        6 清理资源
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workshop/cost/" class="md-nav__link">
+        7 成本预估
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
   </ul>
 </nav>
                   </div>
@@ -912,10 +1222,30 @@
     API参数说明
   </a>
   
+    <nav class="md-nav" aria-label="API参数说明">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    单张图片模式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    两张图片模式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     开始使用
   </a>
   
@@ -970,7 +1300,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     成本预估
   </a>
   
@@ -991,7 +1321,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     卸载部署
   </a>
   
@@ -1005,22 +1335,22 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-  <a href="https://github.com/aws-samples/aws-ai-solution-kit/edit/master/docs/deploy-image-similarity.md" title="编辑此页" class="md-content__button md-icon">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
-  </a>
-
+                  
 
 
   <h1>图像相似度</h1>
 
-<p>比较两幅图片是否相似，通过图片特征向量计算欧氏距离(Euclidean Distance)，并转化为置信度，根据置信度比较两张图片的相似性。</p>
+<p>比较两幅图片是否相似，通过图片特征向量计算余弦距离，并转化为置信度，根据置信度比较两张图片的相似性。</p>
 <h2 id="_1">适用场景</h2>
 <p>可应用于商品识别，翻拍识别，智能相册等场景。</p>
 <h2 id="api">API参数说明</h2>
+<p>该API支持单张图片和两张图片两种输入模式。</p>
+<h3 id="_2">单张图片模式</h3>
+<p>该模式输入为单张图片，返回图片的特征向量。需自行维护一个向量检索系统。适合搜索、召回等场景。</p>
 <ul>
 <li>
 <p>HTTP 方法: <code>POST</code></p>
@@ -1042,7 +1372,7 @@
 <tr>
 <td>url</td>
 <td><em>String</em></td>
-<td>与 img 参数二选一，优先级高于 img</td>
+<td>与 img 参数二选一</td>
 <td>图像的 URL 地址。支持 HTTP/HTTPS 和 S3 协议。要求图像格式为 jpg/jpeg/png/bmp ，最长边不超过 4096px。</td>
 </tr>
 <tr>
@@ -1095,12 +1425,96 @@
     ]
 }
 </code></pre>
-<!-- BEGIN INCLUDE include-deploy-code.md   -->
-
-<h2 id="_2">开始使用</h2>
+<h3 id="_3">两张图片模式</h3>
+<p>该模式输入为两张图片，返回两张图片的余弦相似度。适合相似度比较的场景。</p>
+<ul>
+<li>
+<p>HTTP 方法: <code>POST</code></p>
+</li>
+<li>
+<p>Body 请求参数</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>是否必选</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url_1</td>
+<td><em>String</em></td>
+<td>与 img_1 参数二选一</td>
+<td>图像的 URL 地址。支持 HTTP/HTTPS 和 S3 协议。要求图像格式为 jpg/jpeg/png/bmp ，最长边不超过 4096px。</td>
+</tr>
+<tr>
+<td>img_1</td>
+<td><em>String</em></td>
+<td>与 url_1 参数二选一</td>
+<td>进行 Base64 编码的图像数据</td>
+</tr>
+<tr>
+<td>url_2</td>
+<td><em>String</em></td>
+<td>与 img_2 参数二选一</td>
+<td>图像的 URL 地址。支持 HTTP/HTTPS 和 S3 协议。要求图像格式为 jpg/jpeg/png/bmp ，最长边不超过 4096px。</td>
+</tr>
+<tr>
+<td>img_2</td>
+<td><em>String</em></td>
+<td>与 url_2 参数二选一</td>
+<td>进行 Base64 编码的图像数据</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>请求 Body 示例</li>
+</ul>
+<pre><code class="language-json">{
+&quot;url_1&quot;: &quot;图像的URL地址&quot;,
+&quot;url_2&quot;: &quot;图像的URL地址&quot;
+}
+</code></pre>
+<pre><code class="language-json">{
+&quot;img_1&quot;: &quot;Base64编码的图像数据&quot;,
+&quot;img_2&quot;: &quot;Base64编码的图像数据&quot;
+}
+</code></pre>
+<ul>
+<li>返回参数</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>名称</strong></th>
+<th><strong>类型</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>similarity</td>
+<td><em>Float</em></td>
+<td>两张图片的余弦相似度，为0到1区间内Float型数值。越接近于1，代表图片越相似。</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>返回示例</li>
+</ul>
+<pre><code class="language-json">{
+    &quot;similarity&quot;: 0.95421
+}
+</code></pre>
+<!-- BEGIN INCLUDE include-deploy-code.md -->
+<h2 id="_4">开始使用</h2>
 <h3 id="api_1">API资源浏览器</h3>
 <p><strong>前提条件</strong></p>
-<p>通过AWS CloudFormation<a href="../deployment/#amazon-cloudformation">部署解决方案</a>时，您需要：</p>
+<p>通过AWS CloudFormation<a href="../deployment/">部署解决方案</a>时，您需要：</p>
 <ul>
 <li>设置参数<strong>API Explorer</strong>为<em>yes</em>。</li>
 <li>设置参数<strong>API Gateway Authorization</strong>为<em>NONE</em>。</li>
@@ -1109,11 +1523,16 @@
 <p><strong>操作步骤</strong></p>
 <ol>
 <li>访问<a href="https://console.aws.amazon.com/cloudformation/">AWS CloudFormation控制台</a>。</li>
-<li>从堆栈列表中选择方案的根堆栈。</li>
-<li>打开<strong>输出</strong>标签页，找到<strong>APIExplorer</strong>对应的URL。</li>
 <li>
-<p>点击URL访问API资源浏览器。页面将显示在部署解决方案时选中的API。
-    <img alt="" src="../images/api-explorer.png" /></p>
+<p>从堆栈列表中选择方案的<strong>根堆栈</strong>，而不是嵌套堆栈。列表中嵌套堆栈的名称旁边会显示嵌套（NESTED）。</p>
+<p><img alt="" src="../images/root-stack.png" /></p>
+</li>
+<li>
+<p>打开<strong>输出（Outputs）</strong>标签页，找到<strong>APIExplorer</strong>对应的URL。</p>
+</li>
+<li>
+<p>点击URL访问API资源浏览器。页面将显示在部署解决方案时选中的API。</p>
+<p><img alt="" src="../images/api-explorer.png" /></p>
 </li>
 <li>
 <p>点击API右侧的向下箭头，展开显示API标准模型的请求方法。</p>
@@ -1150,6 +1569,16 @@
 </code></pre>
 <p><img alt="" src="../images/ocr-postman-3-zh.png" /></p>
 <h3 id="curl">cURL</h3>
+<ul>
+<li>Windows</li>
+</ul>
+<pre><code class="language-bash">curl --location --request POST &quot;https://[API_ID].execute-api.[AWS_REGION].amazonaws.com/[STAGE]/text_similarity&quot; ^
+--header &quot;Content-Type: application/json&quot; ^
+--data-raw &quot;{\&quot;url\&quot;: \&quot;图像的URL地址\&quot;}&quot;
+</code></pre>
+<ul>
+<li>Linux/MacOS</li>
+</ul>
 <pre><code class="language-bash">curl --location --request POST 'https://[API_ID].execute-api.[AWS_REGION].amazonaws.com/[STAGE]/text_similarity' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -1203,25 +1632,27 @@ Response response = client.newCall(request).execute();
 </code></pre>
 <!-- END INCLUDE -->
 
-<h2 id="_3">成本预估</h2>
-<p>您需要承担运行解决方案时使用亚马逊云科技各个服务的成本费用。截至2022年5月，影响解决方案的成本因素主要包括：</p>
+<h2 id="_5">成本预估</h2>
+<p>您需要承担运行解决方案时使用亚马逊云科技各个服务的成本费用。截至2022年6月，影响解决方案的成本因素主要包括：</p>
 <ul>
-<li>AWS Lambda调用次数</li>
-<li>AWS Lambda运行时间</li>
 <li>Amazon API Gateway调用次数</li>
 <li>Amazon API Gateway数据输出量</li>
 <li>Amazon CloudWatch Logs存储量</li>
 <li>Amazon Elastic Container Registry存储量</li>
+</ul>
+<p>如果您选择基于Amazon Lambda架构部署，影响成本的因素还包括：</p>
+<ul>
+<li>Amazon Lambda调用次数</li>
+<li>Amazon Lambda运行时间</li>
+</ul>
+<p>与之对应的Amazon SageMaker架构部署，影响成本的因素还包括：</p>
+<ul>
 <li>Amazon SageMaker终端节点实例类型</li>
 <li>Amazon SageMaker终端节点数据输入量</li>
 <li>Amazon SageMaker终端节点数据输出量</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">说明</p>
-<p>Amazon SageMaker相关的费用仅适用于图像超分辨率方案。</p>
-</div>
 <h2 id="1">成本预估示例1</h2>
-<p>以由西云数据运营的亚马逊云科技中国（宁夏）区域（cn-northwest-1）为例，处理1MB图像，处理时间4秒</p>
+<p>以由西云数据运营的亚马逊云科技中国（宁夏）区域（cn-northwest-1）为例，处理1MB图像，处理时间1秒</p>
 <p>使用本方案处理此图像所需的成本费用如下表所示：</p>
 <table>
 <thead>
@@ -1239,8 +1670,8 @@ Response response = client.newCall(request).execute();
 </tr>
 <tr>
 <td>AWS Lambda</td>
-<td>内存4096MB，每次运行4秒</td>
-<td>¥1815.6</td>
+<td>内存10240MB，每次运行1秒</td>
+<td>¥1134.8</td>
 </tr>
 <tr>
 <td>Amazon API Gateway</td>
@@ -1249,8 +1680,8 @@ Response response = client.newCall(request).execute();
 </tr>
 <tr>
 <td>Amazon API Gateway</td>
-<td>数据输出以每次100KB计算，¥0.933/GB</td>
-<td>¥93.3</td>
+<td>数据输出以每次10KB计算，¥0.933/GB</td>
+<td>¥9.33</td>
 </tr>
 <tr>
 <td>Amazon CloudWatch Logs</td>
@@ -1265,12 +1696,12 @@ Response response = client.newCall(request).execute();
 <tr>
 <td>合计</td>
 <td></td>
-<td>¥2001.83</td>
+<td>¥1237.06</td>
 </tr>
 </tbody>
 </table>
 <h2 id="2">成本预估示例2</h2>
-<p>以美国东部（俄亥俄州）区域（us-east-2）为例，处理1MB图像，处理时间4秒</p>
+<p>以美国东部（俄亥俄州）区域（us-east-2）为例，处理1MB图像，处理时间1秒</p>
 <p>使用本方案处理此图像所需的成本费用如下表所示：</p>
 <table>
 <thead>
@@ -1288,8 +1719,8 @@ Response response = client.newCall(request).execute();
 </tr>
 <tr>
 <td>AWS Lambda</td>
-<td>内存4096MB，每次运行4秒</td>
-<td>$266.8</td>
+<td>内存10240MB，每次运行1秒</td>
+<td>$166.7</td>
 </tr>
 <tr>
 <td>Amazon API Gateway</td>
@@ -1298,8 +1729,8 @@ Response response = client.newCall(request).execute();
 </tr>
 <tr>
 <td>Amazon API Gateway</td>
-<td>数据输出以每次100KB计算,$0.09/GB</td>
-<td>$9</td>
+<td>数据输出以每次10KB计算，$0.09/GB</td>
+<td>$0.9</td>
 </tr>
 <tr>
 <td>Amazon CloudWatch Logs</td>
@@ -1308,70 +1739,36 @@ Response response = client.newCall(request).execute();
 </tr>
 <tr>
 <td>Amazon Elastic Container Registry</td>
-<td>待定GB存储，每月每GB$0.1</td>
+<td>0.5GB存储，每月每GB$0.1</td>
 <td>$0.05</td>
 </tr>
 <tr>
 <td>合计</td>
 <td></td>
-<td>$284.55</td>
+<td>$176.35</td>
 </tr>
 </tbody>
 </table>
-<!-- BEGIN INCLUDE include-deploy-uninstall.md   -->
-<h2 id="_4">卸载部署</h2>
+<!-- BEGIN INCLUDE include-deploy-uninstall.md -->
+<h2 id="_6">卸载部署</h2>
 <p>您可以通过AWS CloudFormation卸载 <strong>图像相似度</strong> 功能，具体步骤请见<a href="../deploy-add-delete-api/"><strong>部署解决方案：更新AWS CloudFormation堆栈（添加或删除AI功能）</strong></a>，并在<strong>参数</strong>部分确认 <strong>Image Similarity</strong> 参数设置为<em>no</em>。</p>
 <p><strong>卸载时间</strong>：10 分钟</p>
 <!-- END INCLUDE -->
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
-        
-          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
-            回到页面顶部
-          </a>
         
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="页脚">
-      
-        
-        <a href="../deploy-human-image-segmentation/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 智能人像分割" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                上一页
-              </span>
-              智能人像分割
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../deploy-object-recognition/" class="md-footer__link md-footer__link--next" aria-label="下一页: 通用物体识别" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                下一页
-              </span>
-              通用物体识别
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1393,10 +1790,11 @@ Response response = client.newCall(request).execute();
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.top", "navigation.instant"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\\uff0c\\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      <script src="../assets/javascripts/bundle.407015b8.min.js"></script>
       
     
   </body>
